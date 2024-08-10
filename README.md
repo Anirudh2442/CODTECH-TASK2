@@ -13,4 +13,4 @@ OBJECTIVE:
 TECHNOLOGY USED:
      I HAVE USED PYTHON IDLE(3.12) 64 BIT INTERPRETER FOR THIS PROGRAM
 
-     ![Screenshot (56)](https://github.com/user-attachments/assets/833e7d2f-8209-4880-b141-f92b1cf5bd2a)
+![Screenshot (56)](https://github.com/user-attachments/assets/9298e8ad-ae69-4929-8014-3d8de0f274f9)
