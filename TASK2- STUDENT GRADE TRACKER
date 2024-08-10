@@ -1,0 +1,76 @@
+def calculate_gpa(grades):
+    # Define GPA scale
+    grade_points = {
+        'A': 4.0,
+        'B': 3.0,
+        'C': 2.0,
+        'D': 1.0,
+        'F': 0.0
+    }
+    
+    if not grades:
+        return 0.0
+    
+    total_points = 0
+    for grade in grades:
+        if grade in grade_points:
+            total_points += grade_points[grade]
+        else:
+            print(f"Invalid grade '{grade}' found. Ignoring.")
+    
+    gpa = total_points / len(grades)
+    return gpa
+
+def get_letter_grade(average):
+    # Define letter grade scale
+    if average >= 90:
+        return 'A'
+    elif average >= 80:
+        return 'B'
+    elif average >= 70:
+        return 'C'
+    elif average >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+def main():
+    grades = []
+    subjects = {}
+    
+    print("Welcome to the Student Grade Manager!")
+    
+    while True:
+        subject = input("Enter subject name (or type 'done' to finish): ")
+        if subject.lower() == 'done':
+            break
+        
+        try:
+            grade = float(input(f"Enter grade for {subject} (0-100): "))
+            if 0 <= grade <= 100:
+                subjects[subject] = grade
+            else:
+                print("Grade must be between 0 and 100. Try again.")
+                continue
+        except ValueError:
+            print("Invalid input! Please enter a numeric value.")
+            continue
+    
+    if not subjects:
+        print("No grades entered. Exiting.")
+        return
+    
+    average = sum(subjects.values()) / len(subjects)
+    letter_grade = get_letter_grade(average)
+    gpa = calculate_gpa([letter_grade])
+    
+    print("\nSummary:")
+    for subject, grade in subjects.items():
+        print(f"{subject}: {grade}")
+    
+    print(f"\nAverage Grade: {average:.2f}")
+    print(f"Letter Grade: {letter_grade}")
+    print(f"GPA: {gpa:.2f}")
+
+if __name__ == "__main__":
+    main()
